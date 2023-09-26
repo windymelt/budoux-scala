@@ -14,7 +14,7 @@ lazy val budouxs = crossProject(JSPlatform, JVMPlatform)
   .in(file("."))
   .settings(
     scalaVersion := ScalaVersion,
-    name := "budoux4s",
+    name := "budouxs",
     version := "0.1-SNAPSHOT",
     libraryDependencies ++= Seq(
       "org.scalatest" %%% "scalatest" % "3.2.17" % Test
@@ -31,7 +31,7 @@ lazy val budouxs = crossProject(JSPlatform, JVMPlatform)
       "budoux" -> "0.5.2" // budoux has built-in TypeScript type definitions
     ),
     scalaJSLinkerConfig ~= (_.withModuleSplitStyle(
-      ModuleSplitStyle.SmallModulesFor(List("io.github.windymelt.budoux4s"))
+      ModuleSplitStyle.SmallModulesFor(List("io.github.windymelt.budouxs"))
     )),
     stOutputPackage := "io.github.windymelt.budouxs.internal"
   )
