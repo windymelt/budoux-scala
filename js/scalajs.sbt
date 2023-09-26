@@ -1,1 +1,2 @@
 enablePlugins(ScalablyTypedConverterPlugin)
+enablePlugins(ScalablyTypedConverterGenSourcePlugin)

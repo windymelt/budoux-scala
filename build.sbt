@@ -1,3 +1,5 @@
+import org.scalajs.linker.interface.ModuleSplitStyle
+
 val ScalaVersion = "3.3.0"
 
 lazy val root = project
@@ -28,4 +30,8 @@ lazy val budouxs = crossProject(JSPlatform, JVMPlatform)
     Compile / npmDependencies ++= Seq(
       "budoux" -> "0.5.2" // budoux has built-in TypeScript type definitions
     ),
+    scalaJSLinkerConfig ~= (_.withModuleSplitStyle(
+      ModuleSplitStyle.SmallModulesFor(List("io.github.windymelt.budoux4s"))
+    )),
+    stOutputPackage := "io.github.windymelt.budouxs.internal"
   )

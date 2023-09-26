@@ -1,10 +1,11 @@
 package io.github.windymelt.budouxs
 
 import org.scalablytyped.runtime.StringDictionary
-import typings.budoux.moduleParserMod.Parser as BParser
-import typings.budoux.moduleMod as BParserMod
+import internal.budoux.moduleParserMod.Parser as BParser
+import internal.budoux.moduleMod as BParserMod
+import scala.scalajs.js
 
-import scala.scalajs.js.Dictionary as JMap
+import js.Dictionary as JMap
 class JsBudouXParser(private val inner: BParser) extends BudouXParser {
   import scalajs.js.JSConverters.*
   def parse(sentence: String): List[String] = inner.parse(sentence).toList
