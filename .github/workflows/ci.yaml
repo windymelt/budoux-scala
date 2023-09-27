@@ -20,4 +20,4 @@ jobs:
           distribution: temurin
           java-version: ${{ matrix.java }}
       - name: Build and Test
-        run: sbt test
+        run: sbt 'budouxsJVM/test'
