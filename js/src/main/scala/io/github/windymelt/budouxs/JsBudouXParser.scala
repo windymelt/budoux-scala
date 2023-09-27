@@ -1,16 +1,14 @@
 package io.github.windymelt.budouxs
 
-import org.scalablytyped.runtime.StringDictionary
-import internal.budoux.moduleParserMod.Parser as BParser
+import internal.budoux.moduleHtmlProcessorMod.HTMLProcessingParser as BParser
 import internal.budoux.moduleMod as BParserMod
-import scala.scalajs.js
 
-import js.Dictionary as JMap
+import scala.scalajs.js
+import js.{JSStringOps, Dictionary as JMap}
 class JsBudouXParser(private val inner: BParser) extends BudouXParser {
-  import scalajs.js.JSConverters.*
   def parse(sentence: String): List[String] = inner.parse(sentence).toList
 
-  def translateHtmlString(html: String): String = "" // ???
+  def translateHtmlString(html: String): String = "WIP"
 }
 
 trait JsBudouXParserObj {

@@ -1,4 +1,5 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
+import org.scalajs.linker.interface.OutputPatterns
 
 val ScalaVersion = "3.3.0"
 
@@ -59,13 +60,17 @@ lazy val budouxs = crossProject(JSPlatform, JVMPlatform)
   )
   .jsSettings(
     // See js/scalajs.sbt for sbt plugin settings.
-    // useYarn := true,
+    useYarn := true,
+    Test / scalaJSLinkerConfig ~= {
+      _.withModuleKind(ModuleKind.ESModule)
+        .withOutputPatterns(OutputPatterns.fromJSFile("%s.mjs"))
+    },
     scalaJSUseMainModuleInitializer := true,
     Compile / npmDependencies ++= Seq(
       "budoux" -> "0.5.2" // budoux has built-in TypeScript type definitions
     ),
     scalaJSLinkerConfig ~= (_.withModuleSplitStyle(
-      ModuleSplitStyle.SmallModulesFor(List("io.github.windymelt.budouxs"))
+      ModuleSplitStyle.FewestModules
     )),
     stOutputPackage := "io.github.windymelt.budouxs.internal"
   )
