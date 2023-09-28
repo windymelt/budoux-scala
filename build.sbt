@@ -50,7 +50,6 @@ lazy val budouxs = crossProject(JSPlatform, JVMPlatform)
   .settings(
     scalaVersion := ScalaVersion,
     name := "budouxs",
-    version := "0.1-SNAPSHOT",
     libraryDependencies ++= Seq(
       "org.scalatest" %%% "scalatest" % "3.2.17" % Test
     )
@@ -60,7 +59,7 @@ lazy val budouxs = crossProject(JSPlatform, JVMPlatform)
   )
   .jsSettings(
     // See js/scalajs.sbt for sbt plugin settings.
-    useYarn := true,
+    // useYarn := true,
     Test / scalaJSLinkerConfig ~= {
       _.withModuleKind(ModuleKind.ESModule)
         .withOutputPatterns(OutputPatterns.fromJSFile("%s.mjs"))
